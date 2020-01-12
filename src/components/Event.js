@@ -1,11 +1,12 @@
 import React from "react";
-import reducer from "../reducers";
+
+import { DELETE_EVENT } from '../actions';
 
 const Event = ({event, dispatch}) => {
     const id = event.id;
     const handleClickDeleteButton = () => {
         dispatch({
-            type: 'DELETE_EVENT',
+            type: DELETE_EVENT,
             id
         });
 
