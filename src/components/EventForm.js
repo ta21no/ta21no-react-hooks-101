@@ -34,7 +34,7 @@ const EventForm = () => {
     };
 
     const unCreatable = title === '' || body === '';
-    const isCreated = state.length === 0;
+    const isCreated = state.events.length === 0;
 
     return (
         <>
