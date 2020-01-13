@@ -48,8 +48,19 @@ const EventForm = () => {
         }
     };
 
+    const deleteAllOperationLogs = e => {
+        e.preventDefault();
+        const result = window.confirm('ログを全部消すよ？');
+        if (result) {
+            dispatch({
+                type: DELETE_ALL_OPERATION_LOGS
+            });
+        }
+    };
+
     const unCreatable = title === '' || body === '';
     const isCreated = state.events.length === 0;
+    const isOperationLogsCreated = state.operationLogs.length === 0;
 
     return (
         <>
@@ -68,6 +79,7 @@ const EventForm = () => {
 
                 <button className="btn btn-primary" onClick={addEvent} disabled={unCreatable}>イベントを作成する</button>
                 <button className="btn btn-danger" onClick={deleteAllEvents} disabled={isCreated}>全てのイベントを削除する</button>
+                <button className="btn btn-danger" onClick={deleteAllOperationLogs} disabled={isOperationLogsCreated}>全てのログを削除する</button>
             </form>
         </>
     );
